@@ -149,3 +149,22 @@ You can input ```http://192.168.1.179:4000/``` into your browser.
 If OK, you will see bellow picture:  
 
 <img width="600" height="600" src="./pics/setup_OK.JPG"> 
+
+## Install the daemon as Windows Service
+
+prunsrv.exe: [commons-daemon-1.1.0-bin-windows.zip](http://www.apache.org/dist/commons/daemon/binaries/windows/commons-daemon-1.1.0-bin-windows.zip)
+
+Use the amd64 version if your system is 64.
+
+Install service by run this command:
+
+```
+prunsrv.exe //IS//Gerrit --DisplayName="Gerrit Code Review" --Startup=auto ^
+      --Jvm="D:\Program Files\Java\jdk1.8.0_101\jre\bin\server\jvm.dll" ^
+      --Classpath=E:\www\gerrit\bin\gerrit.war ^
+      --LogPath=E:\www\gerrit\logs ^
+      --StartPath=E:\www\gerrit ^
+      --StartMode=jvm --StopMode=jvm ^
+      --StartClass=com.google.gerrit.launcher.GerritLauncher --StartMethod=daemonStart ^
+      --StopClass=com.google.gerrit.launcher.GerritLauncher --StopMethod=daemonStop ^
+```
