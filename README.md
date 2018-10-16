@@ -168,3 +168,21 @@ prunsrv.exe //IS//Gerrit --DisplayName="Gerrit Code Review" --Startup=auto ^
       --StartClass=com.google.gerrit.launcher.GerritLauncher --StartMethod=daemonStart ^
       --StopClass=com.google.gerrit.launcher.GerritLauncher --StopMethod=daemonStop ^
 ```
+
+## Email config
+
+```
+[oauth]
+    allowEditFullName = true
+    allowRegisterNewEmail = true
+[sendemail]
+	smtpServer = smtp.qiye.aliyun.com
+	smtpServerPort = 465
+	smtpEncryption = ssl
+	sslVerify = true
+	smtpUser = user@hantek.com
+	smtpPass = password
+	from=CodeReview<user@hantek.com>
+```
+
+It seems `from=CodeReview<user@hantek.com>` must be added.
