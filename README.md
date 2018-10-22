@@ -19,7 +19,7 @@ Install it into ```E:/git/Git```
 <img width="420" height="360" src="./pics/git_2.JPG">   
 <img width="420" height="360" src="./pics/git_3.JPG">   
 Then leave the defaults setting and intall it.
-  
+
 **2. Install gerrit**  
 Move **gerrit-2.15.5.war** into ```E:/www/```  
 Please create a folder 'gerrit' in hard drive.
@@ -79,12 +79,14 @@ Extract **httpd-2.4.27-Win64-VC15.zip** to ```E:/www/Apache24/```.
 Install ```the latest C++ Redistributable Visual Studio 2017```. 
 Enter into ```E:/www/Apache24/bin/```, then open PowerShell in this current path.  
 Modify ```conf/httpd.conf``` file as follows:  
-<pre>
+
+```
  SRVROOT "E:/www/Apache24"
 
 Listen 4000
 
-# These lines need to be added or uncomment
+These lines need to be added or uncomment
+
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
 LoadModule proxy_connect_module modules/mod_proxy_connect.so
@@ -122,7 +124,7 @@ Then add gerrit reference things in ```conf/httpd.conf```:
         AuthBasicProvider file  
         AuthUserFile E:/www/gerrit/gerrit_password
     </Location> 
- 
+     
     AllowEncodedSlashes On  
     ProxyPass / http://192.168.1.179:8081/
 </VirtualHost>
@@ -186,3 +188,15 @@ prunsrv.exe //IS//Gerrit --DisplayName="Gerrit Code Review" --Startup=auto ^
 ```
 
 It seems `from=CodeReview<user@hantek.com>` must be added.
+```
+
+
+
+## 其他
+
+### 插件安装
+
+网址：https://gerrit-ci.gerritforge.com/
+
+下载插件 *.jar 放到 `D:\www\gerrit\plugins` 目录， 重启 gerrit
+
